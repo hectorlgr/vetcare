@@ -17,12 +17,11 @@ public class AtencionRepository {
     public AtencionRepository() {
         listaatencion.add(new Atencion(1, "Rambo", "Eduardo", "Fiebre", "01/03/2026"));
         listaatencion.add(new Atencion(2, "Pelusa", "Samuel", "Diarrea", "31/03/2026"));
-
     }
 
     public List<Atencion> obtenerAtenciones() {
         return listaatencion;
-    };
+    }
 
     public Atencion buscarPorId(int id) {
         for (Atencion atencion : listaatencion)
