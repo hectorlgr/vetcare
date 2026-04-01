@@ -15,8 +15,8 @@ public class AtencionRepository {
     private List<Atencion> listaatencion = new ArrayList<>();
 
     public AtencionRepository() {
-        listaatencion.add(new Atencion(1, "Rambo", "Ronald", "Motivo", "01/01/2025"));
-        listaatencion.add(new Atencion(2, "Rambo2", "Ronald", "Motivo", "01/01/2025"));
+        listaatencion.add(new Atencion(1, "Rambo", "Eduardo", "Fiebre", "01/03/2026"));
+        listaatencion.add(new Atencion(2, "Pelusa", "Samuel", "Diarrea", "31/03/2026"));
 
     }
 
@@ -67,7 +67,7 @@ public class AtencionRepository {
 
     public List<Atencion> ordenarAtenciones() {
         List<Atencion> lista = new ArrayList<>(listaatencion);
-        lista.sort(Comparator.comparing(Atencion::getNombre).reversed());
+        lista.sort(Comparator.comparing(Atencion::getNombre)/* .reversed() */);
         return lista;
     };
 
