@@ -2,12 +2,10 @@ package com.example.vetcare.repository;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 
-//import javax.management.AttributeChangeNotificationFilter;
-
 import org.springframework.stereotype.Repository;
-
 import com.example.vetcare.model.Atencion;
 
 @Repository
@@ -15,8 +13,10 @@ public class AtencionRepository {
     private List<Atencion> listaatencion = new ArrayList<>();
 
     public AtencionRepository() {
-        listaatencion.add(new Atencion(1, "Rambo", "Eduardo", "Fiebre", "01/03/2026"));
-        listaatencion.add(new Atencion(2, "Pelusa", "Samuel", "Diarrea", "31/03/2026"));
+        Date fecha = new Date();
+
+        listaatencion.add(new Atencion(1, "Rambo", "Ronald", "Motivo", fecha));
+        listaatencion.add(new Atencion(2, "Rambo2", "Ronald", "Motivo", fecha));
     }
 
     public List<Atencion> obtenerAtenciones() {
@@ -69,5 +69,4 @@ public class AtencionRepository {
         lista.sort(Comparator.comparing(Atencion::getNombre)/* .reversed() */);
         return lista;
     };
-
 }

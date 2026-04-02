@@ -1,7 +1,6 @@
 package com.example.vetcare.model;
 
-//import org.springframework.http.HttpStatus;
-//import org.springframework.web.server.ResponseStatusException;
+import java.util.Date;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,7 +14,7 @@ public class Atencion {
     private String nombre;
     private String nombre_dueno;
     private String Motivo;
-    private String fecha;
+    private Date fecha;
 
     public boolean validarNombre() {
         if (nombre == null || nombre.trim().isEmpty()) {
