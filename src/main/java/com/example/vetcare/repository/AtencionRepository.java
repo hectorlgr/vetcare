@@ -15,8 +15,8 @@ public class AtencionRepository {
     public AtencionRepository() {
         Date fecha = new Date();
 
-        listaatencion.add(new Atencion(1, "Rambo", "Ronald", "Motivo", fecha));
-        listaatencion.add(new Atencion(2, "Rambo2", "Ronald", "Motivo", fecha));
+        listaatencion.add(new Atencion(1, "Princesa", "Ambar", "Intoxicacion", fecha));
+        listaatencion.add(new Atencion(2, "King", "K1", "Diarrea", fecha));
     }
 
     public List<Atencion> obtenerAtenciones() {
@@ -69,4 +69,14 @@ public class AtencionRepository {
         lista.sort(Comparator.comparing(Atencion::getNombre)/* .reversed() */);
         return lista;
     };
+
+    public List<Atencion> buscarNombre(String nombre) {
+        List<Atencion> lista = new ArrayList<>();
+        for (Atencion a : listaatencion) {
+            if (a.getNombre().equalsIgnoreCase(nombre)) {
+                lista.add(a);
+            }
+        }
+        return lista;
+    }
 }

@@ -50,4 +50,9 @@ public class AtencionController {
     return atencionService.getAtencionesOrdenadas();
   }
 
+  @GetMapping("/nombre/{nombre}")
+  public List<Atencion> buscarAtencionNombre(@PathVariable String nombre) {
+    return atencionService.getAtencionNombre(nombre);
+  }
+
 }

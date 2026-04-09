@@ -40,4 +40,8 @@ public class AtencionService {
     return atencionRepository.ordenarAtenciones();
   }
 
+  public List<Atencion> getAtencionNombre(String nombre) {
+    return atencionRepository.buscarNombre(nombre);
+  }
+
 }
