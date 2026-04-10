@@ -22,13 +22,24 @@ public class AtencionService {
   }
 
   public Object saveAtencion(Atencion atencion) {
-    if (atencion.validarNombre())
-      return atencionRepository.guardar(atencion);
-    return "El nombre no puede estar vacío";
+    String validacion = atencion.validarDatos();
+
+    if (!validacion.equals("OK")) {
+      return validacion;
+    }
+
+    Atencion resultado = atencionRepository.guardar(atencion);
+
+    if (resultado == null) {
+      return "Error: Ya existe una atención con el ID " + atencion.getId();
+    }
+
+    return resultado;
   }
 
   public Object updateAtencion(int id, Atencion atencion) {
-    String validacion = atencion.validarNombre() ? "OK" : "El nombre no puede estar vacío";
+    String validacion = atencion.validarDatos();
+
     if (!validacion.equals("OK")) {
       return validacion;
     }
@@ -58,6 +69,10 @@ public class AtencionService {
 
   public List<Atencion> getAtencionNombre(String nombre) {
     return atencionRepository.buscarNombre(nombre);
+  }
+
+  public List<Atencion> getAtencionesPorFecha() {
+    return atencionRepository.ordenarPorFechaDescendente(); // o el ascendente
   }
 
 }

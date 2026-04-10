@@ -55,4 +55,9 @@ public class AtencionController {
     return atencionService.getAtencionNombre(nombre);
   }
 
+  @GetMapping("/fecha")
+  public List<Atencion> listarAtencionesOrdenadasPorFecha() {
+    return atencionService.getAtencionesPorFecha();
+  }
+
 }

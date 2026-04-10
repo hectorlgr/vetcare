@@ -72,4 +72,13 @@ public class AtencionRepository {
         }
         return lista;
     }
+
+    public List<Atencion> ordenarPorFechaDescendente() {
+        List<Atencion> lista = new ArrayList<>(listaatencion);
+
+        // Orden descendente: de la fecha más reciente a la más antigua
+        lista.sort(Comparator.comparing(Atencion::getFecha).reversed());
+
+        return lista;
+    }
 }

@@ -16,10 +16,24 @@ public class Atencion {
     private String motivo;
     private Date fecha;
 
-    public boolean validarNombre() {
-        if (nombre == null || nombre.trim().isEmpty()) {
-            return false;
+    public String validarDatos() {
+        // Validar ID (como es int, por defecto es 0, validamos que sea mayor a 0)
+        if (id <= 0) {
+            return "Error: El ID debe ser mayor a 0.";
         }
-        return true;
+        if (nombre == null || nombre.trim().isEmpty()) {
+            return "Error: El nombre de la mascota no puede estar vacío.";
+        }
+        if (nombreDueno == null || nombreDueno.trim().isEmpty()) {
+            return "Error: El nombre del dueño no puede estar vacío.";
+        }
+        if (motivo == null || motivo.trim().isEmpty()) {
+            return "Error: El motivo de la consulta no puede estar vacío.";
+        }
+        if (fecha == null) {
+            return "Error: La fecha de atención es obligatoria.";
+        }
+
+        return "OK";
     }
 }
