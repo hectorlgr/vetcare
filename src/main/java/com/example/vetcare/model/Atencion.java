@@ -12,8 +12,8 @@ import lombok.NoArgsConstructor;
 public class Atencion {
     private int id;
     private String nombre;
-    private String nombre_dueno;
-    private String Motivo;
+    private String nombreDueno;
+    private String motivo;
     private Date fecha;
 
     public boolean validarNombre() {

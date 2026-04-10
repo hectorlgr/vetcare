@@ -40,21 +40,14 @@ public class AtencionRepository {
     }
 
     public Atencion actualizar(int id, Atencion ate) {
-        int idPosicion = 0;
         for (int i = 0; i < listaatencion.size(); i++) {
             if (listaatencion.get(i).getId() == id) {
-                idPosicion = i;
+                ate.setId(id);
+                listaatencion.set(i, ate);
+                return ate;
             }
         }
-
-        Atencion atencion1 = new Atencion();
-        atencion1.setId(id);
-        atencion1.setNombre(ate.getNombre());
-        atencion1.setNombre_dueno(ate.getNombre_dueno());
-        atencion1.setMotivo(ate.getMotivo());
-        atencion1.setFecha(ate.getFecha());
-        listaatencion.set(idPosicion, atencion1);
-        return atencion1;
+        return null;
     }
 
     public void eliminar(int id) {

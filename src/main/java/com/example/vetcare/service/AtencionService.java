@@ -27,13 +27,29 @@ public class AtencionService {
     return "El nombre no puede estar vacío";
   }
 
-  public Atencion updateAtencion(int id, Atencion atencion) {
-    return atencionRepository.actualizar(id, atencion);
+  public Object updateAtencion(int id, Atencion atencion) {
+    String validacion = atencion.validarNombre() ? "OK" : "El nombre no puede estar vacío";
+    if (!validacion.equals("OK")) {
+      return validacion;
+    }
+
+    Atencion resultado = atencionRepository.actualizar(id, atencion);
+
+    if (resultado == null) {
+      return "Error: No se puede actualizar. La atención con ID " + id + " no existe.";
+    }
+
+    return resultado;
   }
 
   public String deleteAtencion(int id) {
-    atencionRepository.eliminar(id);
-    return "Atencion eliminada";
+    Atencion existe = atencionRepository.buscarPorId(id);
+    if (existe != null) {
+      atencionRepository.eliminar(id);
+      return "Atención " + id + " eliminada exitosamente.";
+    } else {
+      return "Error: La atención " + id + " no existe.";
+    }
   }
 
   public List<Atencion> getAtencionesOrdenadas() {

@@ -26,7 +26,7 @@ public class AtencionController {
   }
 
   @GetMapping("{id}")
-  public Atencion buscarLibro(@PathVariable int id) {
+  public Atencion buscaraAtencion(@PathVariable int id) {
     return atencionService.getAtencionId(id);
   }
 
@@ -36,7 +36,7 @@ public class AtencionController {
   }
 
   @PutMapping("{id}")
-  public Atencion actualizarAtencion(@PathVariable int id, @RequestBody Atencion atencion) {
+  public Object actualizarAtencion(@PathVariable int id, @RequestBody Atencion atencion) {
     return atencionService.updateAtencion(id, atencion);
   }
 
